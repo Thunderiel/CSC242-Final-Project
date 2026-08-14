@@ -55,28 +55,11 @@ bool containsWord(const vector<string>& words, const string& word)
 }
 
 // ----------------------------------------------------
-// Author: Thunderiel Cardoza
+// Author: Siqi Liu
 // Purpose: Opens the file being spell checked and
 // prints words that are not found in the dictionary.
 // ----------------------------------------------------
 void checkFile(const vector<string>& words)
 {
-    ifstream inputFile("test.txt");
-    string word;
 
-    if (!inputFile)
-    {
-        cout << "Error opening file to check." << endl;
-        return;
-    }
-
-    while (inputFile >> word)
-    {
-        if (!containsWord(words, word))
-        {
-            cout << word << endl;
-        }
-    }
-
-    inputFile.close();
 }

@@ -1,20 +1,55 @@
-// P8_7_Cipher.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+// Function declarations
+string removeDuplicates(const string& keyword);
+string createCipherAlphabet(const string& keyword);
+char encryptCharacter(char ch, const string& cipher);
+char decryptCharacter(char ch, const string& cipher);
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+// ----------------------------------------------------
+// Author: Siqi Liu
+// Purpose: Removes duplicate letters from the keyword.
+// Example: FEATHER becomes FEATHR.
+// ----------------------------------------------------
+string removeDuplicates(const string& keyword)
+{
+    return "";
+}
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+// ----------------------------------------------------
+// Author: Thunderiel Cardoza
+// Purpose: Creates the full 26-letter cipher alphabet
+// using the keyword and remaining letters in reverse.
+// ----------------------------------------------------
+string createCipherAlphabet(const string& keyword)
+{
+    return "";
+}
+
+// ----------------------------------------------------
+// Author: Thunderiel Cardoza
+// Purpose: Encrypts one character using the cipher.
+// ----------------------------------------------------
+char encryptCharacter(char ch, const string& cipher)
+{
+    return ch;
+}
+
+// ----------------------------------------------------
+// Author: Thunderiel Cardoza
+// Purpose: Decrypts one character using the cipher.
+// ----------------------------------------------------
+char decryptCharacter(char ch, const string& cipher)
+{
+    return ch;
+}
