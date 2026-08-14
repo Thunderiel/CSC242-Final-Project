@@ -61,5 +61,24 @@ bool containsWord(const vector<string>& words, const string& word)
 // ----------------------------------------------------
 void checkFile(const vector<string>& words)
 {
+    string filename;
+    string word;
 
+    cout << "Enter the file name:";
+    cin >> filename;
+
+    ifstream (!inputFile(filename);
+    if (!inputFile)
+    {
+        cout << "Cannot open file." << endl;
+        return;
+    }
+    
+    while (inputFile >> word)
+        {
+            if (!containsWord (word, word))
+            {
+                cout << word << endl;
+            }
+            inputFile.close();
 }
