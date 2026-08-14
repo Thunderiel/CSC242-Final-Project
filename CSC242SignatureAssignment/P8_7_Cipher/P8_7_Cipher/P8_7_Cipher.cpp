@@ -33,6 +33,15 @@ string removeDuplicates(const string& keyword)
 // ----------------------------------------------------
 string createCipherAlphabet(const string& keyword)
 {
+    string cipher = removeDuplicates(keyword);
+
+    for (char letter = 'Z'; letter >= 'A'; letter--)
+    {
+        if (cipher.find(letter) == string::npos)
+        {
+            cipher += letter;
+        }
+    }
     return "";
 }
 
@@ -51,5 +60,24 @@ char encryptCharacter(char ch, const string& cipher)
 // ----------------------------------------------------
 char decryptCharacter(char ch, const string& cipher)
 {
+    if (isalpha(ch))
+    {
+        char upperChar = toupper(ch);
+
+        size_t position = cipher.find(upperChar);
+
+        if (position != string::npos)
+        {
+            char decryptedChar = 'A' + position;
+
+            if (islower(ch))
+            {
+                decryptedChar = tolower(decryptedChar);
+            }
+
+            return decryptedChar;
+        }
+    }
+
     return ch;
 }
