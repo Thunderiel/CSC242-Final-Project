@@ -51,6 +51,13 @@ void loadDictionary(vector<string>& words)
 // ----------------------------------------------------
 bool containsWord(const vector<string>& words, const string& word)
 {
+    for (int i = 0; i < words.size(); i++)
+        {
+            if (words{i} == word)
+            {
+                return true;
+            }
+        }
     return false;
 }
 
