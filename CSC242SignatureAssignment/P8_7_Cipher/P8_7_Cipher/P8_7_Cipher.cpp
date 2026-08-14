@@ -37,7 +37,7 @@ string createCipherAlphabet(const string& keyword)
 }
 
 // ----------------------------------------------------
-// Author: Thunderiel Cardoza
+// Author: Jacob Leigers
 // Purpose: Encrypts one character using the cipher.
 // ----------------------------------------------------
 char encryptCharacter(char ch, const string& cipher)
