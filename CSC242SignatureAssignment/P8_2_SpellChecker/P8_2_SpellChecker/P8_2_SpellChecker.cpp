@@ -27,7 +27,21 @@ int main()
 // ----------------------------------------------------
 void loadDictionary(vector<string>& words)
 {
+    ifstream dictionaryFile("words.txt");
+    string word;
 
+    if (!dictionaryFile)
+    {
+        cout << "Error opening dictionary file." << endl;
+        return;
+    }
+
+    while (dictionaryFile >> word)
+    {
+        words.push_back(word);
+    }
+
+    dictionaryFile.close();
 }
 
 // ----------------------------------------------------
@@ -47,5 +61,22 @@ bool containsWord(const vector<string>& words, const string& word)
 // ----------------------------------------------------
 void checkFile(const vector<string>& words)
 {
+    ifstream inputFile("test.txt");
+    string word;
 
+    if (!inputFile)
+    {
+        cout << "Error opening file to check." << endl;
+        return;
+    }
+
+    while (inputFile >> word)
+    {
+        if (!containsWord(words, word))
+        {
+            cout << word << endl;
+        }
+    }
+
+    inputFile.close();
 }
