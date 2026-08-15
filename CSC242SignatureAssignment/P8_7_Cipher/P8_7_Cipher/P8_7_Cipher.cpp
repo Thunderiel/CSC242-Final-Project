@@ -11,8 +11,6 @@ string createCipherAlphabet(const string& keyword);
 char encryptCharacter(char ch, const string& cipher);
 char decryptCharacter(char ch, const string& cipher);
 
-int main()
-{
     int main()
     {
         string keyword;
@@ -25,8 +23,7 @@ int main()
         cout << "Cipher alphabet: " << cipher << endl;
 
         return 0;
-    }
-    return 0;
+    
 }
 
 // ----------------------------------------------------
