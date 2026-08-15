@@ -53,7 +53,7 @@ bool containsWord(const vector<string>& words, const string& word)
 {
     for (int i = 0; i < words.size(); i++)
         {
-            if (words{i} == word)
+            if (words[i] == word)
             {
                 return true;
             }
@@ -74,18 +74,21 @@ void checkFile(const vector<string>& words)
     cout << "Enter the file name:";
     cin >> filename;
 
-    ifstream (!inputFile(filename);
+    ifstream inputFile(filename);
+
     if (!inputFile)
     {
         cout << "Cannot open file." << endl;
         return;
     }
-    
+
     while (inputFile >> word)
+    {
+        if (!containsWord(words, word))
         {
-            if (!containsWord (word, word))
-            {
-                cout << word << endl;
-            }
-            inputFile.close();
+            cout << word << endl;
+        }
+       
+    }
+    inputFile.close();
 }
