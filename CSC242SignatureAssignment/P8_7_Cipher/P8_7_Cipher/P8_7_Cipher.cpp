@@ -10,22 +10,34 @@ string removeDuplicates(const string& keyword);
 string createCipherAlphabet(const string& keyword);
 char encryptCharacter(char ch, const string& cipher);
 char decryptCharacter(char ch, const string& cipher);
+void encryptFile(const string& inputFile, const string& outputFile,
+    const string& cipher);
+void decryptFile(const string& inputFile, const string& outputFile,
+    const string& cipher);
 
-    int main()
-    {
-        string keyword;
+// ----------------------------------------------------
+// Author: Thunderiel Cardoza
+// Purpose: Gets the keyword, creates the cipher,
+// encrypts the input file, and decrypts the result.
+// ----------------------------------------------------
+int main()
+{
+    string keyword;
 
-        cout << "Enter keyword: ";
-        cin >> keyword;
+    cout << "Enter keyword: ";
+    cin >> keyword;
 
-        string cipher = createCipherAlphabet(keyword);
+    string cipher = createCipherAlphabet(keyword);
 
-        cout << "Cipher alphabet: " << cipher << endl;
+    cout << "Cipher alphabet: " << cipher << endl;
 
-        return 0;
-    
+    encryptFile("Input.txt", "encrypted.txt", cipher);
+    decryptFile("encrypted.txt", "decrypted.txt", cipher);
+
+    cout << "Files processed." << endl;
+
+    return 0;
 }
-
 // ----------------------------------------------------
 // Author: Siqi Liu
 // Purpose: Removes duplicate letters from the keyword.
@@ -36,14 +48,15 @@ string removeDuplicates(const string& keyword)
     string result;
 
     for (char letter : keyword)
+    {
+        char upperletter = toupper (letter);
+
+            if (isalpha(upperletter) &&
+                result.find(upperletter) == string::npos)
         {
-            char upperletter = toupper (letter);
-            if (isalpha(upperLetter) &&
-            result.find(upperLetter) == string::npos)
-        {
-            result += upperLetter;
+            result += upperletter;
         }
-        }
+    }
     return result;
 }
 
@@ -73,13 +86,15 @@ string createCipherAlphabet(const string& keyword)
 char encryptCharacter(char ch, const string& cipher)
 {
     if (ch >= 'a' && ch <= 'z')
-    { 
-        return cipher[ch - 'a'];
+    {
+        return tolower(cipher[ch - 'a']);
     }
-    if (ch >= 'A' && <= 'Z')
+
+    if (ch >= 'A' && ch <= 'Z')
     {
         return cipher[ch - 'A'];
     }
+
     return ch;
 }
 
@@ -109,4 +124,74 @@ char decryptCharacter(char ch, const string& cipher)
     }
 
     return ch;
+}
+// ----------------------------------------------------
+// Author:  Siqi Liu
+// Purpose: Encrypts every character in an input file
+// and writes the encrypted text to an output file.
+// ----------------------------------------------------
+void encryptFile(const string& inputFile,
+    const string& outputFile,
+    const string& cipher)
+{
+    ifstream input(inputFile);
+    ofstream output(outputFile);
+
+    if (!input)
+    {
+        cout << "Could not open input file." << endl;
+        return;
+    }
+
+    if (!output)
+    {
+        cout << "Could not open output file." << endl;
+        return;
+    }
+
+    char ch;
+
+    while (input.get(ch))
+    {
+        output << encryptCharacter(ch, cipher);
+    }
+
+    input.close();
+    output.close();
+}
+
+
+// ----------------------------------------------------
+// Author:  Jacob Leiger
+// Purpose: Decrypts every character in an input file
+// and writes the original text to an output file.
+// ----------------------------------------------------
+void decryptFile(const string& inputFile,
+    const string& outputFile,
+    const string& cipher)
+{
+    ifstream input(inputFile);
+    ofstream output(outputFile);
+
+    if (!input)
+    {
+        cout << "Could not open input file." << endl;
+        return;
+    }
+
+    if (!output)
+    {
+        cout << "Could not open output file." << endl;
+        return;
+    }
+
+    char ch;
+
+    while (input.get(ch))
+    {
+        output << decryptCharacter(ch, cipher);
+    }
+
+    input.close();
+    output.close();
 }
