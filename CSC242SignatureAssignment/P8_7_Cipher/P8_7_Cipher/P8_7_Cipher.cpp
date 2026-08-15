@@ -13,6 +13,19 @@ char decryptCharacter(char ch, const string& cipher);
 
 int main()
 {
+    int main()
+    {
+        string keyword;
+
+        cout << "Enter keyword: ";
+        cin >> keyword;
+
+        string cipher = createCipherAlphabet(keyword);
+
+        cout << "Cipher alphabet: " << cipher << endl;
+
+        return 0;
+    }
     return 0;
 }
 
@@ -24,9 +37,10 @@ int main()
 string removeDuplicates(const string& keyword)
 {
     string result;
+
     for (char letter : keyword)
         {
-            cahr upperletter = toupper (letter);
+            char upperletter = toupper (letter);
             if (isalpha(upperLetter) &&
             result.find(upperLetter) == string::npos)
         {
@@ -52,7 +66,7 @@ string createCipherAlphabet(const string& keyword)
             cipher += letter;
         }
     }
-    return "";
+    return cipher;
 }
 
 // ----------------------------------------------------
