@@ -72,6 +72,14 @@ string createCipherAlphabet(const string& keyword)
 // ----------------------------------------------------
 char encryptCharacter(char ch, const string& cipher)
 {
+    if (ch >= 'a' && ch <= 'z')
+    { 
+        return cipher[ch - 'a'];
+    }
+    if (ch >= 'A' && <= 'Z')
+    {
+        return cipher[ch - 'A'];
+    }
     return ch;
 }
 
