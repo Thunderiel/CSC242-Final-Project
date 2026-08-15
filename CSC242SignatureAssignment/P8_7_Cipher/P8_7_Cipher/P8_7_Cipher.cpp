@@ -23,7 +23,17 @@ int main()
 // ----------------------------------------------------
 string removeDuplicates(const string& keyword)
 {
-    return "";
+    string result;
+    for (char letter : keyword)
+        {
+            cahr upperletter = toupper (letter);
+            if (isalpha(upperLetter) &&
+            result.find(upperLetter) == string::npos)
+        {
+            result += upperLetter;
+        }
+        }
+    return result;
 }
 
 // ----------------------------------------------------
