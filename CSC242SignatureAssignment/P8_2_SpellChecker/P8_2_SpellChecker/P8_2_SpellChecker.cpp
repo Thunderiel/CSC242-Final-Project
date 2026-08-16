@@ -1,3 +1,16 @@
+/* ---------------------------------------------------------------------------
+** I attest that this following code represents my own work and is subject to
+** the plagiarism policy found in the course syllabus.
+**
+** Class:       CSC 242
+** Assignment:  Lesson #5
+** File:        P8_2_SpellChecker.cpp
+** Description: Checks words in a file against a dictionary and displays
+**              any words that are not found.
+**
+** Author:      Thunderiel Cardoza, Siqi Liu, Jacob Leigers
+** Date:        8/16/2026
+** -------------------------------------------------------------------------*/
 #include <iostream>
 #include <fstream>
 #include <vector>
