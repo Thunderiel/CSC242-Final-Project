@@ -23,18 +23,30 @@ void decryptFile(const string& inputFile, const string& outputFile,
 int main()
 {
     string keyword;
+    char choice;
 
     cout << "Enter keyword: ";
     cin >> keyword;
 
     string cipher = createCipherAlphabet(keyword);
 
-    cout << "Cipher alphabet: " << cipher << endl;
+    cout << "Enter E to encrypt or D to decrypt: ";
+    cin >> choice;
 
-    encryptFile("Input.txt", "encrypted.txt", cipher);
-    decryptFile("encrypted.txt", "decrypted.txt", cipher);
-
-    cout << "Files processed." << endl;
+    if (choice == 'E' || choice == 'e')
+    {
+        encryptFile("Input.txt", "encrypted.txt", cipher);
+        cout << "File encrypted." << endl;
+    }
+    else if (choice == 'D' || choice == 'd')
+    {
+        decryptFile("encrypted.txt", "decrypted.txt", cipher);
+        cout << "File decrypted." << endl;
+    }
+    else
+    {
+        cout << "Invalid choice." << endl;
+    }
 
     return 0;
 }
